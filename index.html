@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="icon" href="assets/task.png">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- styles.css -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>          
+    <section id="header">
+        <div id="main">
+            <div class="hamburger">
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+            </div>
+
+            <div class="information">
+                <div class="cancel">
+                    <div class="d"></div>
+                    <div class="e"></div>
+                </div>
+                <div class="details">
+                    <h4 class="profile" style="border-bottom:3px solid rgb(243, 231, 7); padding-bottom:10px;" data-bs-target="#profileModal" data-bs-toggle="modal"><i class="fa-solid fa-user"></i>Profile</h4>
+                    <h4 class="about" data-bs-target="#aboutModal" data-bs-toggle="modal"><i class="fa-solid fa-circle-info"></i>About</h4>
+                </div>
+            </div>
+
+            <div class="user-greet">
+                <div>
+                    <h1>Hello, <span id="username">User</span></h1>
+                    <p>You have 0 tasks left..</p>
+                </div>
+                <img src="assets/avatar.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="input-holder">
+            <input class='input-box' type="text" placeholder="type here..." value="">  
+            <div class="add-icon">
+            <i class="fa-solid fa-plus"></i>
+            </div>          
+        </div>
+
+        <div id="food-list">
+            <ul class="food-items">
+                <!-- <li>Briyani<i class="fa-regular fa-trash-can" onclick="remove(event)"></i></li>
+                <li>Pulav<i class="fa-regular fa-trash-can" onclick="remove(event)"></i></li>
+                <li>Rice<i class="fa-regular fa-trash-can" onclick="remove(event)"></i></li> -->
+            </ul>
+            <img src="assets/empty-image.png" style="width:300px; display: block;">
+            <h2 style="color:gray; margin-top: -40px; display:block;">List is empty..</h2>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div id="message">
+             Sucessfully added!
+        </div>
+    </section>
+
+    <!-- Modal Profile-->
+    <div class="modal fade" 
+         id="profileModal" 
+         tabindex="-1" 
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:rgb(239,225,128); color:gray;">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa-solid fa-user" style="margin:10px;"></i>Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="first-name">
+                        <label for="fname">First name</label>
+                        <input type="text" placeholder="firstname">
+                    </div>
+                    <div class="last-name">
+                        <label for="lname">Last name</label>
+                        <input type="text" placeholder="lastname">
+                    </div>
+                    <div class="sex">
+                        <label for="gender" style="margin-right:25px;">Gender</label>
+                        <input type="radio" name="type" id="male" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="type" id="female" value="female" >
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning save-btn" style="font-weight:800">Save</button>
+                </div>
+            </div>
+         </div>
+    </div>
+
+    <!-- Modal About -->
+    <div class="modal fade" 
+         id="aboutModal" 
+         tabindex="-1" 
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:rgb(239,225,128); color:gray;">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa-solid fa-circle-info" style="margin:10px;"></i>About App.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="heading">
+                        <h2 style="text-align:center;">TO-DO-LIST</h2>
+                         <h5 style="text-align:left;">This is a To-Do-List web application. This application helps you to store your day to day works.
+                            It has a local storage where your data's are being stored. You can view it anytime..You can set your profile too.
+                            Depending on it the header section changes accordingly.
+                         </h5>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
